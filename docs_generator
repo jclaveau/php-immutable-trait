@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#if empty tools/phpdoc-markdown-public
+if [ -z "$(ls -A tools/phpdoc-markdown-public)" ]; then
+    git submodule update --init --recursive
+    cd tools/phpdoc-markdown-public
+    composer install
+    cd ../..
+fi
+
+# phpdoc command
+./tools/phpdoc-markdown-public/vendor/bin/phpdoc \
+    --directory=src/ \
+    --target=docs \
+    --template="tools/phpdoc-markdown-public/data/templates/markdown-public" \
+    --title="PHP Immutable Trait"

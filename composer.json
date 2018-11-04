@@ -1,0 +1,41 @@
+{
+    "name": "jclaveau/php-immutable-trait",
+    "description": "A trait to implement easily (im)mutable objects",
+    "license": "MIT",
+    "type": "library",
+    "keywords": ["trait", "mutable", "immutable", "instance", "clone", "functionnal"],
+    "authors": [
+        {
+            "name": "Jean Claveau",
+            "role": "Dev"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4" : {
+            "JClaveau\\Traits\\" : "src"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jclaveau/xhprof",
+            "no-api": true
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/jclaveau/phpunit-testlistener-xhprof",
+            "no-api": true
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "5.*",
+        "jclaveau/phpunit-testlistener-xhprof": "dev-master",
+        "jclaveau/xhprof": "dev-master",
+        "jclaveau/phpunit-profile-asserts": "^1.0",
+        "dusank/knapsack": "^10.0"
+    },
+    "require": {
+        "php": ">=5.6.0"
+    }
+}

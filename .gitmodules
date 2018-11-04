@@ -1,0 +1,3 @@
+[submodule "tools/phpdoc-markdown-public"]
+	path = tools/phpdoc-markdown-public
+	url = https://github.com/cvuorinen/phpdoc-markdown-public/
