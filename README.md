@@ -1,4 +1,4 @@
-# Immutable trait
+# Immutable Trait
 This trait makes it super easy to turn an instance immutable or mutable.
 
 ## Quality
