@@ -8,13 +8,23 @@
 namespace JClaveau\Traits;
 
 /**
- * This trait adds the support of switchable mutability to the class you want with
+ * This trait adds the support of mutability to the class you want with
  * the tools to handle it with the tighter footprint as possible.
  */
 trait Immutable
 {
-    /** @var bool $isMutable The mutability state of the current instance */
-    protected $isMutable = true;
+    /** @var bool $isImmutable The mutability state of the current instance */
+    protected $isImmutable = true;
+
+    /**
+     * Tells if the current instance is immutable or not.
+     *
+     * @return bool The answer
+     */
+    public function isImmutable()
+    {
+        return $this->isImmutable;
+    }
 
     /**
      * This method is meant to be called at the beginning of every method that
@@ -39,7 +49,7 @@ trait Immutable
     {
         // If the current instance is mutable we continue the execution of the
         // called method
-        if ($this->isMutable) {
+        if ( ! $this->isImmutable) {
             return false;
         }
 
@@ -56,38 +66,6 @@ trait Immutable
         $methodResult = call_user_func_array( [clone $this, $bt[1]['function']], $bt[1]['args'] );
 
         return true;
-    }
-
-    /**
-     * Sets the current instance as immutable.
-     *
-     * @return $this
-     */
-    public function setImmutable()
-    {
-        $this->isMutable = false;
-        return $this;
-    }
-
-    /**
-     * Sets the current instance as mutable.
-     *
-     * @return $this
-     */
-    public function setMutable()
-    {
-        $this->isMutable = true;
-        return $this;
-    }
-
-    /**
-     * Tells if the current instance is mutable or not.
-     *
-     * @return bool The answer
-     */
-    public function isMutable()
-    {
-        return $this->isMutable;
     }
 
     /**/

@@ -2,7 +2,6 @@
 This trait makes it super easy to turn an instance immutable or mutable.
 
 ## Quality
---------------
 [![Build Status](https://travis-ci.org/jclaveau/php-immutable-trait.png?branch=master)](https://travis-ci.org/jclaveau/php-immutable-trait)
 [![codecov](https://codecov.io/gh/jclaveau/php-immutable-trait/branch/master/graph/badge.svg)](https://codecov.io/gh/jclaveau/php-immutable-trait)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/jclaveau/php-immutable-trait/issues)
@@ -14,6 +13,7 @@ This trait makes it super easy to turn an instance immutable or mutable.
 class ImmutableObject
 {
     use Immutable;
+    // use SwitchableMutability; // This traits provides becomesMutable() and becomesImmutable()
 
     protected $property;
 
@@ -36,7 +36,7 @@ class ImmutableObject
 }
 
 
-$instance = (new ImmutableObject)->setImmutable();
+$instance = new ImmutableObject;
 $instance2 = $instance->setProperty('new value');
 
 var_dump( $instance->getProperty() ); => null
