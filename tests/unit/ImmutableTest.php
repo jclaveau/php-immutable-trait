@@ -46,12 +46,24 @@ class ImmutableTest extends \AbstractTest
 {
     /**
      */
-    public function test_mutable()
+    public function test_becomesMutable()
     {
         $instance = new TestObject();
         $instance->becomesMutable()->setProperty('lalala');
         $this->assertEquals('lalala', $instance->getProperty());
         $this->assertFalse( $instance->isImmutable() );
+    }
+
+    /**
+     */
+    public function test_becomesImmutable()
+    {
+        $instance = (new TestObject())->becomesMutable()->setProperty('lalala');
+        $instance2 = $instance->becomesImmutable()->setProperty('lilili');
+
+        $this->assertEquals('lalala', $instance->getProperty());
+        $this->assertEquals('lilili', $instance2->getProperty());
+        $this->assertTrue( $instance->isImmutable() );
     }
 
     /**
