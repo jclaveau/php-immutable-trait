@@ -7,6 +7,11 @@ This trait makes it super easy to turn an instance immutable or mutable.
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/jclaveau/php-immutable-trait/issues)
 [![Viewed](http://hits.dwyl.com/jclaveau/php-immutable-trait.svg)](http://hits.dwyl.com/jclaveau/php-immutable-trait)
 
+## Installation
+php-immutable-trait is installable via [Composer](http://getcomposer.org)
+
+    composer require jclaveau/php-immutable-trait
+
 
 ## Usage
 ```php
@@ -42,3 +47,9 @@ $instance2 = $instance->setProperty('new value');
 var_dump( $instance->getProperty() ); => null
 var_dump( $instance2->getProperty() ); => 'new value'
 ```
+
+## TODO
++ Profiles
++ PHP 7
++ Support immutability for private / protected methods? Should the dev handle it?
+  Should we provide a simple protected API for it?
