@@ -29,7 +29,7 @@ class ImmutableObject
         if ($this->callOnCloneIfImmutable($result))
             return $result;
 
-        // Do wathever you want in your method returning whatever you want else
+        // $this is now the new instance if it's immutable
         $this->property = $value;
         return $this;
     }
